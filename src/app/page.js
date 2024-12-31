@@ -66,6 +66,25 @@ const Page = () => {
           <p className="price">$30.00</p>
           <button className="btn">Add to Cart</button>
         </div>
+
+        <div className="card">
+          <Image src={img4} alt="Product 3" width={500} />
+          <h2>Product 3</h2>
+          <p className="price">$30.00</p>
+          <button className="btn">Add to Cart</button>
+        </div>
+
+        <div className="card">
+          <Image src={img5} alt="Product 3" width={500} />
+          <h2>Product 3</h2>
+          <p className="price">$30.00</p>
+          <button className="btn">Add to Cart</button>
+        </div>
+
+
+
+
+
       </div>
 
       <h2>Inquiry</h2>
