@@ -1,101 +1,242 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React, { useState } from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import img1 from '../../public/1.jpg'
+import img2 from '../../public/2.jpg'
+import img3 from '../../public/3.jpg'
+import img4 from '../../public/4.jpg'
+import img5 from '../../public/5.jpg'
+
+
+
+
+ // Import from next/navigation
+ import "./globals.css";
+
+ !function(f,b,e,v,n,t,s) {
+  if(f.fbq)return;
+  n=f.fbq=function() {
+      n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+  };
+  if(!f._fbq)f._fbq=n;
+  n.push=n;
+  n.loaded=!0;
+  n.version='2.0';
+  n.queue=[];
+  t=b.createElement(e);t.async=!0;
+  t.src=v;
+  s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)
+}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID'); 
+fbq('track', 'PageView');
+
+
+
+
+
+
+
+
+
+
+const Page = () => {
+  const [messageVisible, setMessageVisible] = useState(false);
+  const router = useRouter();
+
+  // Handle form submission and redirect to Thank You page
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add form submission logic here...
+    router.push('/Thank'); // Redirect to the Thank You page
+  };
+
+  // Show a message for Form 2
+  const showMessage = () => {
+    setMessageVisible(true);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          rel="stylesheet"
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <link
+          rel="icon"
+          type="image/png"
+          href="Boys New Trends Pants Design _ Dress And Jeans Pants Collocation _ Top 20 Pants Design For Man.jpg"
+        />
+        <title>Shoppiu</title>
+      </Head>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <header className="header">
+        <div className="logo">Soppiu</div>
+      </header>
+
+      <div className="container">
+        <h1 style={{ fontSize: '34px' }}>Shop Now</h1>
+        <div className="card">
+          <Image src={img1} alt="Product 1" width={569} style={{width:"100%"}}/>
+          <h2>Product 1</h2>
+          <p className="price">$10.00</p>
+          <button className="btn">Add to Cart</button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <div className="card">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src={img2}
+            alt="Product 2"
+      width={450}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <h2>Product 2</h2>
+          <p className="price">$20.00</p>
+          <button className="btn">Add to Cart</button>
+        </div>
+        <div className="card">
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src={img3}
+            alt="Product 3"
+          width={500}
+        
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <h2>Product 3</h2>
+          <p className="price">$30.00</p>
+          <button className="btn">Add to Cart</button>
+        </div>
+    
+      <div className="card">
           <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+            src={img3}
+            alt="Product 3"
+          width={500}
+        
           />
-          Go to nextjs.org →
-        </a>
+          <h2>Product 3</h2>
+          <p className="price">$30.00</p>
+          <button className="btn">Add to Cart</button>
+        </div>
+  
+
+
+<div className="card">
+<Image
+  src={img3}
+  alt="Product 3"
+width={500}
+
+/>
+<h2>Product 3</h2>
+<p className="price">$30.00</p>
+<button className="btn">Add to Cart</button>
+</div>
+
+</div>
+
+
+
+
+
+
+
+      <h2>Inquiry</h2>
+      <form onSubmit={handleSubmit} method="POST" style={{ margin: '60px' }}>
+        <input type="text" name="name" placeholder="Enter your name" required />
+        <br />
+        <input type="text" name="email" placeholder="Email" />
+        <br />
+        <button
+          type="submit"
+          style={{
+            padding: '10px 20px',
+            backgroundColor: 'chartreuse',
+            margin: '20px',
+          }}
+        >
+          Submit
+        </button>
+      </form>
+
+      <h2>Form 2</h2>
+      <form id="form2" className="form" style={{ margin: '60px' }}>
+        <input type="text" id="name" placeholder="Enter your name" required />
+        <br />
+        <input type="password" placeholder="Password" />
+        <br />
+        <button
+          type="button"
+          onClick={showMessage}
+          style={{
+            padding: '10px 20px',
+            backgroundColor: 'rgb(76, 0, 255)',
+            margin: '20px',
+            color: 'white',
+          }}
+        >
+          Submit
+        </button>
+      </form>
+      {messageVisible && (
+        <div id="message" className="message">
+          Thank you for submitting!
+        </div>
+      )}
+
+      <footer className="footer">
+        <div className="footer-container">
+          <div className="footer-section">
+            <h3>About Us</h3>
+            <p>
+              We offer the best products at affordable prices. Shop with
+              confidence!
+            </p>
+          </div>
+          <div className="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">Shop</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+              <li>
+                <a href="#">FAQs</a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h3>Follow Us</h3>
+            <div className="social-icons">
+              <a href="#" target="_blank">
+                <i className="fab fa-facebook"></i>
+              </a>
+              <a href="#" target="_blank">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#" target="_blank">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href="#" target="_blank">
+                <i className="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        </div>
       </footer>
-    </div>
+    </>
   );
-}
+};
+
+export default Page;
