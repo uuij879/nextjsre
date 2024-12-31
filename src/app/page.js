@@ -1,60 +1,26 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import img1 from '../../public/1.jpg'
-import img2 from '../../public/2.jpg'
-import img3 from '../../public/3.jpg'
-import img4 from '../../public/4.jpg'
-import img5 from '../../public/5.jpg'
+import img1 from '../../public/1.jpg';
+import img2 from '../../public/2.jpg';
+import img3 from '../../public/3.jpg';
+import img4 from '../../public/4.jpg';
+import img5 from '../../public/5.jpg';
 
-
-
-
- // Import from next/navigation
- import "./globals.css";
-
- !function(f,b,e,v,n,t,s) {
-  if(f.fbq)return;
-  n=f.fbq=function() {
-      n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
-  };
-  if(!f._fbq)f._fbq=n;
-  n.push=n;
-  n.loaded=!0;
-  n.version='2.0';
-  n.queue=[];
-  t=b.createElement(e);t.async=!0;
-  t.src=v;
-  s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)
-}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'YOUR_PIXEL_ID'); 
-fbq('track', 'PageView');
-
-
-
-
-
-
-
-
-
+import "./globals.css";
 
 const Page = () => {
   const [messageVisible, setMessageVisible] = useState(false);
   const router = useRouter();
 
-  // Handle form submission and redirect to Thank You page
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add form submission logic here...
-    router.push('/Thank'); // Redirect to the Thank You page
+    router.push('/Thank');
   };
 
-  // Show a message for Form 2
   const showMessage = () => {
     setMessageVisible(true);
   };
@@ -77,72 +43,30 @@ const Page = () => {
       </Head>
 
       <header className="header">
-        <div className="logo">Soppiu</div>
+        <div className="logo">Shoppiu</div>
       </header>
 
       <div className="container">
         <h1 style={{ fontSize: '34px' }}>Shop Now</h1>
         <div className="card">
-          <Image src={img1} alt="Product 1" width={569} style={{width:"100%"}}/>
+          <Image src={img1} alt="Product 1" width={569} style={{ width: "100%" }} />
           <h2>Product 1</h2>
           <p className="price">$10.00</p>
           <button className="btn">Add to Cart</button>
         </div>
         <div className="card">
-          <Image
-            src={img2}
-            alt="Product 2"
-      width={450}
-          />
+          <Image src={img2} alt="Product 2" width={450} />
           <h2>Product 2</h2>
           <p className="price">$20.00</p>
           <button className="btn">Add to Cart</button>
         </div>
         <div className="card">
-          <Image
-            src={img3}
-            alt="Product 3"
-          width={500}
-        
-          />
+          <Image src={img3} alt="Product 3" width={500} />
           <h2>Product 3</h2>
           <p className="price">$30.00</p>
           <button className="btn">Add to Cart</button>
         </div>
-    
-      <div className="card">
-          <Image
-            src={img3}
-            alt="Product 3"
-          width={500}
-        
-          />
-          <h2>Product 3</h2>
-          <p className="price">$30.00</p>
-          <button className="btn">Add to Cart</button>
-        </div>
-  
-
-
-<div className="card">
-<Image
-  src={img3}
-  alt="Product 3"
-width={500}
-
-/>
-<h2>Product 3</h2>
-<p className="price">$30.00</p>
-<button className="btn">Add to Cart</button>
-</div>
-
-</div>
-
-
-
-
-
-
+      </div>
 
       <h2>Inquiry</h2>
       <form onSubmit={handleSubmit} method="POST" style={{ margin: '60px' }}>
@@ -199,35 +123,19 @@ width={500}
           <div className="footer-section">
             <h3>Quick Links</h3>
             <ul>
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">Shop</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-              <li>
-                <a href="#">FAQs</a>
-              </li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">FAQs</a></li>
             </ul>
           </div>
           <div className="footer-section">
             <h3>Follow Us</h3>
             <div className="social-icons">
-              <a href="#" target="_blank">
-                <i className="fab fa-facebook"></i>
-              </a>
-              <a href="#" target="_blank">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" target="_blank">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="#" target="_blank">
-                <i className="fab fa-linkedin"></i>
-              </a>
+              <a href="#" target="_blank"><i className="fab fa-facebook"></i></a>
+              <a href="#" target="_blank"><i className="fab fa-twitter"></i></a>
+              <a href="#" target="_blank"><i className="fab fa-instagram"></i></a>
+              <a href="#" target="_blank"><i className="fab fa-linkedin"></i></a>
             </div>
           </div>
         </div>
