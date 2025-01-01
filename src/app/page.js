@@ -14,6 +14,8 @@ import "./globals.css";
 
 const Page = () => {
   const [messageVisible, setMessageVisible] = useState(false);
+  const [email, setemail] = useState('');
+  const [pass, setpass] = useState('');
   const router = useRouter();
 
   const handleSubmit = (e) => {
@@ -24,6 +26,12 @@ const Page = () => {
   const showMessage = () => {
     setMessageVisible(true);
   };
+  const  thankyou=(e)=>{
+    e.preventDefault()
+    setemail('');
+    setpass('');
+
+  }
 
   return (
     <>
@@ -75,7 +83,14 @@ const Page = () => {
         </div>
 
         <div className="card">
-          <Image src={img5} alt="Product 3" width={500} />
+          <Image src={img5} alt="Product 3" width={500} style={{width:"100%"}} />
+          <h2>Product 3</h2>
+          <p className="price">$30.00</p>
+          <button className="btn">Add to Cart</button>
+        </div>
+
+        <div className="card">
+          <Image src={img5} alt="Product 3" width={500} style={{width:"100%"}} />
           <h2>Product 3</h2>
           <p className="price">$30.00</p>
           <button className="btn">Add to Cart</button>
@@ -85,10 +100,16 @@ const Page = () => {
 
 
 
+
+
+
       </div>
 
-      <h2>Inquiry</h2>
-      <form onSubmit={handleSubmit} method="POST" style={{ margin: '60px' }}>
+      <h2 style={{textTransform:"capitalize",fontSize:"30px",color:"cyan",fontWeight:"900",marginLeft:"23px"}}  >Inquiry</h2>
+
+      <div style={{justifyContent:"center",justifyItems:"center"}}>
+     
+      <form onSubmit={handleSubmit} method="POST" style={{ margin: '60px',backgroundColor:"tomato" ,padding:"34px",}}  >
         <input type="text" name="name" placeholder="Enter your name" required />
         <br />
         <input type="text" name="email" placeholder="Email" />
@@ -104,15 +125,16 @@ const Page = () => {
           Submit
         </button>
       </form>
-
-      <h2>Form 2</h2>
-      <form id="form2" className="form" style={{ margin: '60px' }}>
-        <input type="text" id="name" placeholder="Enter your name" required />
+</div>
+      <div  style={{textTransform:"capitalize",fontSize:"30px",color:"royalblue",fontWeight:"900",marginLeft:"23px"}}>Inquiry 2 </div>
+      <div style={{justifyContent:"center",justifyItems:"center"}}>
+      <form id="form2"           onSubmit={thankyou}  className="form" style={{ margin: '60px',backgroundColor:"navy" ,padding:"34px",}}>
+        <input type="text" id="name"  value={email}  onChange={(e)=>setemail(e.target.value)}     placeholder="Enter your name" required />
         <br />
-        <input type="password" placeholder="Password" />
+        <input type="password"  value={pass}    onChange={(e)=>setpass(e.target.value)}       placeholder="Password" />
         <br />
         <button
-          type="button"
+          type="submit"
           onClick={showMessage}
           style={{
             padding: '10px 20px',
@@ -124,6 +146,9 @@ const Page = () => {
           Submit
         </button>
       </form>
+
+</div>
+
       {messageVisible && (
         <div id="message" className="message">
           Thank you for submitting!
@@ -163,7 +188,7 @@ const Page = () => {
         </div>
       </footer>
     </>
-  );
-};
+  )
+}
 
 export default Page;

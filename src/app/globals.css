@@ -1,8 +1,7 @@
 
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+background-color: #0056b3;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,14 +15,16 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f9fa;
+  background-color: navy;
 }
 .container {
-  width: 90%;
+  width:90%;
   max-width: 1200px;
   margin: 20px auto;
 }
+
 .card {
+  width: 20%;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 15px;
@@ -43,11 +44,12 @@ body {
   color: #555;
 }
 .form {
-  margin: 20px 0;
+   display: block;
 }
 .message {
-  margin-top: 20px;
+  margin-top: 34px;
   color: green;
+  font-size: 34px;
 }
 /* Reset default styles */
 body {
